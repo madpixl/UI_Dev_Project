@@ -1,0 +1,199 @@
+.navbar {
+  font-size: 0.8em;
+  margin-bottom: 0;
+
+  .brand {
+    position: absolute;
+    top: @brandTopOffset;
+
+    a {
+      display: inline-block;
+    }
+
+    object {
+      pointer-events: none; //makes logo clickable
+    }
+  }
+
+  .nav {
+
+    .badge {
+      background-color: #cd3301;
+      border-radius: 2px;
+      padding: 2px 4px;
+    }
+
+    li {
+      border-right: 1px solid darken(@navbar-default-bg, 35%);
+      border-left: 1px solid lighten(@navbar-default-bg, 15%);
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
+
+header {
+  height: 160px;
+  background-color: @header-background;
+  .box-shadow(0 0 15px 3px @gray-light);
+
+  .site-search {
+    margin-top: 36px;
+    position: relative;
+
+    input {
+      padding-right: 25px;
+    }
+
+    button {
+      position: absolute;
+      right: 5px;
+      top: 4px;
+      background: transparent;
+      border: none;
+
+      i {
+        color: @brand-primary;
+      }
+    }
+  }
+
+  nav.primary {
+    margin-top: 28px;
+
+    ul.nav-tabs.nav-justified {
+      background-color: @body-bg;
+      border-top: 1px solid lighten(#000, 75%);
+
+      li {
+
+        a,
+        &.active > a {
+          border: none;
+          border-right: 1px solid lighten(#000, 75%);
+          .box-shadow(inset 0 -3px 0 0 lighten(#000, 75%));
+          color: @gray;
+          font-size: 0.9em;
+          font-weight: bold;
+          border-radius: 0px;
+          padding-top: 8px;
+          padding-bottom: 11px;
+
+          .caret {
+            border-top-color: @gray;
+          }
+        }
+
+        &.active > a {
+          .box-shadow(inset 0 -3px 0 0 @navbar-default-bg);
+        }
+
+        &.highlight {
+          #gradient > .vertical(@brand-accent-light, @brand-accent-dark);
+
+          a {
+            color: #fff;
+          }
+
+          a:hover {
+            #gradient > .vertical(@brand-accent-dark, @brand-accent-light);
+          }
+        }
+
+        .dropdown-menu {
+          background-color: @navbar-default-bg;
+          margin: -3px 0 0 0;
+          border: 0;
+          border-radius: 0;
+          .box-shadow(0 3px 10px rgba(0,0,0,.7));
+
+          li {
+
+            a {
+              color: @gray-light;
+              padding: 8px 15px;
+              font-weight: normal;
+              border-right: none;
+              .box-shadow(none);
+              border-bottom-style: 1px dotted @gray;
+            }
+
+            a:hover {
+              color: #fff;
+              background-color: @navbar-default-bg;
+            }
+
+            &.dropdown--divider {
+              margin: 2px 15px;
+              border-bottom: 1px dotted @gray;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.main {
+  .main__content {
+    background: #fff;
+    border: 1px solid lighten(@gray-light, 15%);
+    padding: 15px;
+    margin-top: 20px;
+
+    h1:first-child {
+      margin-top: 0;
+    }
+
+    .panel:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+footer {
+  font-size: 0.8em;
+  margin: 10px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+// Adjust nav text when on a small screen
+@media (min-width: @screen-sm-min) {
+  header nav.primary ul.nav-tabs.nav-justified li a,
+  header nav.primary ul.nav-tabs.nav-justified li.active > a {
+    font-size: 0.85em;
+  }
+}
+
+// Adjustments for small screens
+// Only supporting tablet
+@media (max-width: @screen-xs-max) {
+  .site, .container {
+    width: 768px;
+  }
+
+  .nav-tabs.nav-justified > li {
+    display: table-cell;
+    width: 1%;
+
+    a {
+      margin-bottom: 0;
+    }
+  }
+
+  header nav.primary ul.nav-tabs.nav-justified li a,
+  header nav.primary ul.nav-tabs.nav-justified li.active > a {
+    font-size: 0.85em;
+  }
+
+}
+

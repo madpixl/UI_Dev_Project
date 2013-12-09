@@ -1,0 +1,505 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:dt="http://java.sun.com/jsf/composite/ertjsf/components"
+>
+<h:head>  
+ <style type="text/css">
+  
+/* Good styles + Container */
+
+ #dt-logbook-work-area,
+#pageLayout #wrapper #work-area
+{
+   text-align: center;
+   display: block;
+   width: 100% !important;
+   margin: auto;
+   padding: 0;
+   left: 0;
+   right: 0;
+   height: auto;
+   overflow: visible;
+   position: absolute;
+   top: 190px !important;
+   text-align: center;
+}
+
+#dms-panel-logbook span div hr
+{
+border-color:transparent;
+background-color:transparent;
+display:inline;
+height:0;
+display:none;
+}
+
+#work-area #logBookForm
+{
+   clear: both;
+   text-align: center;
+   width: auto;
+   max-width: 1420px;
+   position: relative;
+   overflow-x: visible;
+   overflow-y: visible; 
+   display: inline-block;
+   height: auto;
+   border: none;
+   background-color:#ffffff;
+   /*padding-right: 10px;*/
+}
+
+/*invalid html forms the two divs that separate the table head from the body. It is necessary evil for scrolling tables in ie8. */
+
+#logBookForm div.ui-panel-content
+{
+   padding: 0 !important;
+   margin: 0;
+}
+
+#logBookForm .ui-datatable-scrollable
+{
+   text-align: left;
+   margin: 0;
+   padding: 0;
+   height: auto;
+   clear: both;
+   display: block;
+   float: left;
+   border: solid 1px #eeeeee;
+   padding: 0;
+}
+
+/*Head div  */
+
+#logBookForm .ui-datatable-scrollable-header
+{
+   text-align: left;
+   left: 0;
+   top: 0;
+   width: auto;
+   white-space: normal;
+}
+
+.col-sorter label
+{
+   display: block;
+   text-align: left;
+   clear: left;
+   float: left;
+   color: #ffffff;
+}
+
+.col-sorter select
+{
+   float: left;
+   background-color: #ffffff !important;
+   margin-right: 2px;
+}
+
+.col-sorter
+{
+   float: left!important;
+   text-align: left!important;
+   width: auto;
+   padding: 4px 2px;
+   margin: 3px 3px;
+   clear: none;
+   display: block;
+   position: absolute;
+   z-index: 2;
+}
+
+/*Body div*/
+
+#logBookForm .ui-datatable-scrollable-body
+{
+   clear: both;
+   text-align: center;
+   position: relative;
+   white-space: nowrap;
+   display: inline-block;
+   max-height: 380px;
+   overflow-y: auto;
+   overflow-x: hidden !important;
+}
+
+#logBookForm ul.ui-tabs
+{
+   border: solid 1px solid #ffffff;
+   overflow: hidden;
+}
+
+/*
+#logBookForm .ui-datatable-scrollable-body tr:hover td
+{
+  background-color:#ffffe2;
+  }
+  */
+
+.ui-widget ui-datatable-scrollable
+{
+   width: 99%;
+}
+
+/* Table Striping for all browsers except ie 8 (this is for the prototype) */
+
+#logBookForm .ui-datatable-scrollable-body tr:nth-child(even),
+ .ui-datatable-even TD
+{
+   background-color: #fdfdff;
+}
+
+/*
+DMS Panel
+  */
+ 
+
+.dms-panel-logbook
+{
+   text-align: left;
+}
+
+.dms-panel-logbook input
+{
+   border-color: #aaaaaa;
+}
+
+.dms-panel-logbook span > div
+{
+   width: 700px;
+}
+
+#logBookForm div.ui-datatable-scrollable-header-box
+{
+   padding: 0;
+   width: auto;
+}
+
+#logBookForm .ui-datatable-scrollable-header
+{
+   margin-right: 1px;
+}
+
+#logBookForm .ui-datatable-scrollable-header,
+#logBookForm .ui-datatable-scrollable-body
+{
+   float: left;
+   border-collapse: collapse;
+   clear: both;
+}
+
+/* Search Empty Table Message */
+#logBookForm  .ui-datatable-scrollable-header  tr th.ui-paginator-top
+{
+   text-align:right!important;
+}
+
+
+#logBookForm .ui-datatable-scrollable-body .ui-datatable-empty-message
+{
+   background-color: #ffffff;
+}
+
+#logBookForm .ui-datatable-scrollable-body .ui-datatable-empty-message td
+{
+   display: table-cell;
+}
+
+#logBookForm .ui-datatable-scrollable-body .ui-datatable-empty-message:hover td
+{
+   background-color: #ffffff;
+   width: auto;
+   overflow:hidden;
+}
+
+/*Footer*/
+
+#logBookForm div.ui-datatable-scrollable-footer
+{
+   clear: both;
+   width: 100%;
+   text-align: center;
+   margin: 2px auto;
+}
+
+#logBookForm div.ui-datatable-scrollable-footer .ui-datatable-scrollable-header-box
+{
+   float: right;
+   border: none;
+}
+
+#logBookForm div.ui-datatable-scrollable-footer td
+{
+   border: none;
+}
+
+ 
+#logBookForm  .ui-datatable-scrollable-header  tr th
+{
+   text-align:center !important;
+}
+ 
+#logBookForm .ui-datatable-scrollable-header tr div,
+#logBookForm .ui-datatable-scrollable-body tr div,
+ #logBookForm .ui-datatable-scrollable-header tr spanish,
+ #logBookForm .ui-datatable-scrollable-body tr span,
+#logBookForm .ui-datatable-scrollable-body tr a,
+#logBookForm .ui-datatable-scrollable-header tr a
+{
+   display: inline;
+   width: inherit;
+   overflow: hidden;
+   white-space: normal;
+   margin: 0;
+   padding: 0;
+}
+
+#work-area #logBookForm .ui-datatable-scrollable .ui-datatable-scrollable-header table,
+ #work-area #logBookForm .ui-datatable-scrollable .ui-datatable-scrollable-body table
+{
+   min-width: 780px;
+   width: 100%;
+}
+
+#logBookForm .ui-datatable
+{
+  
+  min-width:0;
+}
+
+/*
+Paginator top
+ */
+ 
+
+#logBookForm .ui-datatable-scrollable-header .ui-paginator-top
+{
+   text-align: right;
+}
+
+/* this is for the pagination bar to hide the hidden text in the next and back arrows */
+
+
+#logBookForm .ui-datatable-scrollable-header .ui-paginator-top span
+{
+   text-align: left;
+}
+ 
+#logBookForm .ui-datatable-scrollable td:last-child,
+#logBookForm .ui-datatable-scrollable th:last-child
+ {
+ padding-right:6px !important;
+ }
+  
+  #logBookForm .ui-tabs-panels,
+  #logBookForm .ui-tabs-panels .ui-tabs-panel,
+  #logBookForm .ui-tabs 
+  {
+   margin:0;
+   border:none!important;
+  }
+  
+
+#logBookForm .ui-datatable-scrollable td,
+ #logBookForm .ui-datatable-scrollable th
+{
+   font-size: 12px;
+   font-family: Arial, Helvetica, sans-serif;
+   margin: 0;
+   padding: 5px 1px;
+   text-indent: 1px;
+   border: 1px solid #dddddd;
+   overflow: hidden !important;
+   display: table-cell;
+   white-space: normal !important;
+}
+ 
+/* .VIN,.Owner-Lessor */
+#logBookForm .dt-col-xlarge
+{
+   min-width: 175px;
+   max-width: 175px;
+}
+
+/*.Tran-Type,.Deal-ID-Stock-*/
+
+#logBookForm .dt-col-large
+{
+   min-width: 144px; 
+   max-width: 144px; 
+}
+
+/*.Purchase-Date, .Days-Until-Due,.Created-By*/
+#logBookForm .dt-col-med
+{
+   min-width: 100px;
+    max-width: 100px;
+}
+ 
+#logBookForm .dt-col-small
+{
+   min-width: 74px;
+    max-width: 74px;
+}
+  
+#logBookForm .dt-col-xsmall
+{
+   min-width: 42px;
+    max-width: 42px;
+}
+#logBookForm  .dt-new-entry
+{
+  font-weight:bold!important;
+}
+ </style>
+ 
+ <!--   <h:outputStylesheet name="css/logbook.css" library="ertjsf"/> -->
+  </h:head>
+  <ui:include src="/ertjsf/pages/commons/duplicateVINDialog.xhtml" />
+  <ui:include src="/ertjsf/pages/commons/duplicateDMSImportDialog.xhtml" />
+  <ui:include src="/ertjsf/pages/commons/transactionNotesDialog.xhtml" />
+  <ui:include src="/ertjsf/pages/logBook/dmsAppletLoader.xhtml" />
+  
+  <h:form id="logBookForm">
+    <h:inputHidden id="logBookMessages" value="#{logbookBean.uiMessages}" readonly="true"/>
+    <p:panel id="logbookPanel" toggleable="false" collapsed="false" header="Logbook">
+       <f:facet name="options">
+          <p:menubar id="daMenu" styleClass="ui-widget-content-nav"   autoDisplay="false">
+            <p:menu autoDisplay="false" icon="ui-icon ui-icon-gear">
+              <p:menuitem id="ctMI11" value="Customize Table" ajax="true" partialSubmit="true" onstart="blockUI('Please wait...')" onsuccess="unblockUI(); "
+                action="#{manageLogbookBean.logbookBean.editPrefSettings('LB_PREFS')}" update="logbookPreferencesPanel" />
+            </p:menu>
+          </p:menubar>
+      </f:facet>
+
+      <!-- Logbook setup -->
+      <p:outputPanel id='logbookPreferencesPanel'>
+        <p:outputPanel id='bar' rendered="#{manageLogbookBean.logbookBean.isPrefSettingsRenderable('LB_PREFS')}">
+          <ui:include src="/ertjsf/pages/logBook/logbookPrefs.xhtml" />
+        </p:outputPanel>
+      </p:outputPanel>
+ 
+      <ui:include src="/ertjsf/pages/logBook/dmsImportForLogbook.xhtml" />
+      <ui:include src="/ertjsf/pages/logBook/filterAndSearch.xhtml" />  
+    <!--Sort thangs-->   
+      <p:outputPanel id="sortColumns" styleClass="col-sorter"> 
+	            <p:outputLabel for="sort" value="Sort by: " /> 
+		        <h:selectOneMenu id="sort" value="#{logbookBean.sortColumn}">
+		          <f:selectItems value="#{logbookBean.sortColumnSelects}"/>
+		          <p:ajax process="@this" listener="#{logbookBean.savePreferences}" update="@form"/> 
+		            <f:converter converterId="jsf.DisableUpperCaseConverter" />
+		        </h:selectOneMenu> 
+		        <h:selectOneMenu id="sortOrder" value="#{logbookBean.sortOrder}">
+		          <f:selectItems value="#{logbookBean.sortOrderSelects}"/>
+		          <p:ajax process="@this" listener="#{logbookBean.savePreferences}" update="@form"/> 
+		        </h:selectOneMenu>
+		    </p:outputPanel>
+      
+      <!-- Logbook datatable -->
+   
+      <ui:include src="/ertjsf/pages/logBook/linkHandler.xhtml" />
+
+      <h:inputHidden value="#{manageLogbookBean.bootStrap()}"
+        readonly="true" />
+      <!-- logbook table -->
+      <p:outputPanel id="logbook">
+        <h:outputText value="Please enter criteria and press the 'Search' button" 
+          rendered="#{logbookBean.needsSearch}"/>
+        <p:outputPanel rendered="#{!logbookBean.needsSearch}"
+        styleClass="log-book-panel"
+        >
+        <!-- wrap the dataTable in an outputPanel because conditional rendering on the dataTable wasn't working properly -->
+        <p:dataTable lazy="true" var="row"
+         value="#{logbookBean.allRows}" paginator="true"
+         rows="#{logbookBean.getInitialRows()}" rowIndexVar="rowNumber"
+         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+         rowsPerPageTemplate="#{logbookBean.getRowsPerPageTemplate()}"
+         scrollable="true"
+         resizableColumns="false" 
+         emptyMessage="#{logbookBean.emptyMessage}"
+         rowStyleClass="#{row.isNewRecord() ? 'dt-new-entry' : ''}"         
+          >
+        <p:ajax event="page" update=":logBookForm:logBookMessages"
+          oncomplete="popLogbookMessagebox();" />
+         <p:columns
+          value="#{logbookBean.columnDefinitions}" 
+          var="column"
+          columnIndexVar="colIndex"
+          styleClass="#{column.getAlignStyle()} #{column.getSizeStyle()}"
+         >
+          <!-- style="#{column.getTextAlignStyle()}#{column.getAdditionalStyle()}"  -->
+          <!-- styleClass="#{fn:replace(column.header,'[^a-zA-Z0-9]', '-')}"  -->  
+          <f:facet name="header">#{column.header}
+          </f:facet>
+          <p:outputPanel rendered="#{!row.isEdit(column.key)}">
+            <h:outputText value="#{row[column.key]}"
+              rendered="#{row.asTitle(column.key)}"
+              title="#{row.getTitle(column.key)}"/>              
+              <!-- styleClass="#{fn:replace(column.header,'[^a-zA-Z0-9]', '-')}"  -->  
+            <h:outputText value="#{row[column.key]}"
+              rendered="#{row.asText(column.key)}" 
+              />
+            <h:commandLink id="hrefLink"
+              onclick="doLinkClickedAction('#{rowNumber}','#{column.key}','#{row[column.key]}'); return false;"
+              rendered="#{row.asHyperLink(column.key)}"
+              value="#{row[column.key]}" 
+              
+              />
+          </p:outputPanel>
+          <p:outputPanel rendered="#{row.isSelectItem(column.key)}"
+           styleClass="#{fn:replace(column.header,'[^a-zA-Z0-9]', '-')}"
+          >
+            <h:selectOneMenu value="#{row[column.key]}"
+              rendered="#{row.isSelectItem(column.key)}"
+              onchange="doLinkClickedAction('#{rowNumber}','#{column.key}',this.value); return false;">
+              <f:selectItems value="#{row.getSelectItems(column.key)}" />
+            </h:selectOneMenu>
+          </p:outputPanel>
+
+          <p:graphicImage library="ertjsf"
+            name="#{logbookBean.getGraphicFileName(column.key,row[column.key])}"
+            rendered="#{row.asGraphic(column.key)}"
+            title="#{row.getTitle(column.key)}" />
+        </p:columns>
+
+      </p:dataTable>
+      </p:outputPanel>
+      </p:outputPanel>
+        
+    </p:panel>
+  </h:form>
+  
+  <script language="javascript">
+ function  resizeGrid() {
+      var $tableBodyCell = $('.ui-datatable-scrollable-body tr:first td');
+      var $headerCell = $('.ui-datatable-scrollable-header-box thead tr .ui-dynamic-column');
+      var $footerCell = $('.ui-datatable-scrollable-footer');
+     
+      if($tableBodyCell.length != $headerCell.length) { 
+    	  var $totalWidth= $('.ui-datatable-scrollable-header-box').width()-5; 
+    	  $tableBodyCell.eq(0).width($totalWidth); 
+      } else {
+	      $tableBodyCell.each(function(index){
+	      $headerCell.eq(index).width($(this).width()); 
+	       });
+      }
+	    var tableWidth = $('.ui-datatable-scrollable-body').width();       
+      $('.ui-panel').width(tableWidth);    
+         
+} 
+  
+ 
+  $(document).ajaxComplete(function() { 
+	  resizeGrid();
+  });
+  $(document).ajaxComplete(function() { 
+    resizeGrid();
+  });
+  </script>
+</ui:composition>

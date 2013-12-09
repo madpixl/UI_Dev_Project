@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Template</title>
+<!--  HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+        <script src="../assets/js/html5.js"></script>
+    <![endif]-->
+<link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+</head>
+<body>
+ <!-- page container -->
+  <div>
+    <!-- global nav bar -->
+    <div id="global-nav" class="navbar-collapse collapse navbar-fixed-top navbar-inverse navbar-global">
+     <img class="navbar-brand" src="assets/img/dtlogo.png" />
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="">link</a> </li>
+        <li><a href="">link</a> </li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="">link <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="">DMS</a> </li>
+            <li><a href="">link</a> </li>
+            <li><a href="">link</a> </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+<!-- end global nav bar --> 
+<!-- header -->  
+ <header class="row">
+<!-- banner row --> 
+  <div id="banner-main" class="row">  
+  <form class="navbar-search navbar-right pull-right" role="search"> 
+    <div class="input-group col-lg-3 pull-right">
+      <input type="text" class="form-control">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button"><i class="icon-search"></i></button>
+      </span>
+    </div>
+   </form>   
+   </div>
+<!-- /banner row -->
+  
+<!--main nav -->
+<div id="navbar-main" class="navbar-collapse navbar-ex1-collapse text-center">
+    <ul class="nav navbar-nav"> 
+      <li><a href="#">My Dealertrack</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Customers <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li><a href="#">Separated link</a></li>
+          <li><a href="#">One more separated link</a></li>
+        </ul>
+      </li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="">Inventory <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="">My Dealertrack</a> </li>
+            <li><a href="">Customers</a> </li>
+            <li><a href="">Inventory</a> </li>
+            <li><a href="">Reports</a> </li>
+            <li><a href="">Lenders</a> </li>
+            <li><a href="">DMS</a> </li>
+            <li><a href="">DMS</a> </li>
+          </ul>
+        </li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="">Reports <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="">My Dealertrack</a> </li>
+            <li><a href="">Customers</a> </li>
+            <li><a href="">Inventory</a> </li>
+            <li><a href="">Reports</a> </li>
+            <li><a href="">Lenders</a> </li>
+            <li><a href="">DMS</a> </li>
+            <li><a href="">DMS</a> </li>
+          </ul>
+        </li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="">Lenders <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="">My Dealertrack</a> </li>
+            <li><a href="">Customers</a> </li>
+            <li><a href="">Inventory</a> </li>
+            <li><a href="">Reports</a> </li>
+            <li><a href="">Lenders</a> </li>
+            <li><a href="">DMS</a> </li>
+            
+          </ul>
+        </li>
+        <li class="create"><a href=""><i class="glyphicon-plus"></i> Create</a> </li>
+    </ul> 
+  </div>
+ 
+<!-- /main nav -->
+ </header> 
+<!-- /header -->
+
+<!-- local app content/nav area--> 
+<div class="container-fluid" id="content">
+<!-- local app nav area   -->  
+     <div id="app-nav" class="navbar-nav pull-left span3">
+      <!--nav -->
+      <h2> OLRS Menu</h2> 
+                      <div class="accordion" id="customer-nav"> 
+                    <div class="accordion-group">
+                        <h3 class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#customer-nav" href="#collapseCustomer">
+                                <i class="icon-user"></i> Customer
+                            </a>
+                        </h3>
+                        <div id="collapseCustomer" class="accordion-body collapse" style="height: 0px; ">
+                            <div class="accordion-inner">
+                                <ul>
+                                    <li>Lessor/Owner</li>
+                                    <li>Lesse</li>
+                                    <li>This is Three</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group" id="vehichle-nav">
+                        <h3 class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#leftMenu" href="#collapseVehichle">
+                                <i class="icon-ambulance"></i> Vehicle</a>
+                        </h3>
+                        <div id="collapseVehichle" class="accordion-body collapse" style="height: 0px; ">
+                            <div class="accordion-inner">
+                                <ul>
+                                    <li>This is one</li>
+                                    <li>This is two</li>
+                                    <li>This is Three</li>
+                                </ul>                 
+                            </div>
+                         </div>
+                    </div>
+                    <div class="accordion-group" id="finance-nav">
+                        <h3 class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#leftMenu" href="#collapseFinance">
+                                <i class="icon-dollar>"></i> Finance
+                            </a>
+                        </h3>
+                        <div id="collapseFinance" class="accordion-body collapse" style="height: 0px; ">
+                            <div class="accordion-inner">
+                                <ul>
+                                    <li>This is one</li>
+                                    <li>This is two</li>
+                                    <li>This is Three</li>
+                                </ul>                 
+                            </div>
+                         </div>
+                    </div>
+                    <div class="accordion-group" id="dmv-nav">
+                        <h3 class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#gov-nav" href="#collapseGov">
+                                <i class="icon-coffee"></i> DMV
+                            </a>
+                        </h3>
+                        <div id="collapseGov" class="accordion-body collapse" style="height: 0px; ">
+                            <div class="accordion-inner">
+                                <ul>
+                                    <li>This is one</li>
+                                    <li>This is two</li>
+                                    <li>This is Three</li>
+                                </ul>                 
+                            </div>
+                         </div>
+                    </div>
+                    
+                </div>
+         
+     <!-- END ACCORDION -->    
+    </div>
+     <!-- /nav area--> 
+      <!-- local app content-->  
+     <div class="span9" id="app-area">
+     </div>
+<!-- /local app content-->  
+</div>
+<!-- /local app content/nav area--> 
+</div>
+
+ 
+</body>
+<script type="text/javascript" src="assets/js/vendor/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="assets/js/vendor/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="assets/js/vendor/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/vendor/html5shiv.js"></script>
+<script type="text/javascript" src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"> </script>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Multi Transfer with jQuery UI Selectable	</title>
+    <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.24/themes/start/jquery-ui.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 class="survey-title">What jQuery UI  had you  already used?</h1>
+  <br />
+  
+  <div id="multi-transfer-container">
+     <div id="source-container">
+       <h2 id="source-title">Widgets</h2>
+       <ul id="source-list">
+         <li>Accordion</li>
+         <li>Autocomplete</li>
+         <li>Button</li>
+         <li>Datepicker</li>
+         <li>Dialog</li>
+         <li>Progressbar</li>
+         <li>Slider</li>
+         <li>Tabs</li>
+       </ul>
+     </div>
+     <div id="transfer-buttons-container">
+         <div id="transfer-buttons">
+           <button id="add-button">Add &rarr;</button>
+           <button id="add-all-button">Add All *&rarr;</button>
+           <button id="remove-button">&larr; Remove</button>
+           <button id="remove-all-button">&larr;* Remove All</button>           
+         </div>
+     </div>
+     <div id="target-container">
+       <h2 id="target-title">Widgets You Used</h2>
+       <ul id="target-list">
+       </ul>
+     </div>
+  </div>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+  <script>
+    jQuery(document).ready(function($) {
+      $("#source-list, #target-list").selectable();
+	  
+	  $("#add-button").click(add);
+	  $("#add-all-button").click(addAll);
+	  $("#remove-button").click(remove);
+	  $("#remove-all-button").click(removeAll);
+	 
+	  addHiglightPlugin();	  
+	});	
+	
+	function addHiglightPlugin() {
+	  $.fn.highlight = function() {
+	     return this
+		                 .addClass("li-transfer-highlight")
+		                 .removeClass("li-transfer-highlight", 400);
+	  }
+	}
+	
+	function add() {
+		transfer($("#source-list li.ui-selected"));
+	}	
+	function addAll() {
+	  transfer($("#source-list li:visible"));
+	}
+	function transfer(listItems) {
+	  listItems.fadeOut(function() {
+	    $(this)
+		  .removeClass("ui-selected")
+		  .clone()
+		  .appendTo("#target-list")
+		  .fadeIn()
+		  .data("index", $("#source-list li").index($(this)))
+		  .highlight();
+	  });
+	}	
+	
+	function remove() {
+		$("#target-list li.ui-selected").fadeOut(function() {
+			$("#source-list li") 
+				.eq($(this).data("index"))
+				.removeClass("ui-selected")
+				.fadeIn()
+				.highlight();
+				
+		  $(this).remove();		
+		});	
+	}	
+	function removeAll() {
+	  $("#target-list li").fadeOut()
+	    .promise().done(function() {
+	      $("#target-list li").remove();
+		  $("#source-list li:hidden").fadeIn().highlight();
+	    });
+	}
+		
+    </script>
+    
+</body>
+</html>
