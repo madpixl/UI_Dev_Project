@@ -1,5 +1,5 @@
-
-function included (filename) {
+ 
+function include (filename) {
   
   var d = this.window.document;
   var isXML = d.documentElement.nodeName !== 'HTML' || !d.write; // Latter is for silly comprehensiveness
@@ -28,8 +28,9 @@ function included (filename) {
   return this.incJs.includes[filename];
 }
 
-included("../assets/js/vendor/jquery-1.10.1.min.js");
-included("../assets/js/vendor/bootstrap.js");
-included("../assets/js/vendor/html5shiv.js");
+
+include("../assets/js/vendor/jquery-1.10.1.min.js");
+include("../assets/js/vendor/bootstrap.js");
+include("../assets/js/vendor/html5shiv.js");
 
  

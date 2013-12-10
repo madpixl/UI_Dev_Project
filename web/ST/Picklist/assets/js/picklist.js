@@ -2,3 +2,4 @@ $(function()
 {
     $("#basic").pickList();
 });
+ 

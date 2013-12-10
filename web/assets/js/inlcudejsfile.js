@@ -1,5 +1,5 @@
-
-function included (filename) {
+ 
+function include (filename) {
   
   var d = this.window.document;
   var isXML = d.documentElement.nodeName !== 'HTML' || !d.write; // Latter is for silly comprehensiveness
@@ -14,22 +14,19 @@ function included (filename) {
   cur_file[this.window.location.href] = 1;
 
   // BEGIN REDUNDANT
-  this.incJs = this.incJs || {};
+  this.php_js = this.php_js || {};
   // END REDUNDANT
-  if (!this.incJs.includes) {
-    this.incJs.includes = cur_file;
+  if (!this.php_js.includes) {
+    this.php_js.includes = cur_file;
   }
-  if (!this.incJs.includes[filename]) {
-    this.incJs.includes[filename] = 1;
+  if (!this.php_js.includes[filename]) {
+    this.php_js.includes[filename] = 1;
   } else {
-    this.incJs.includes[filename]++;
+    this.php_js.includes[filename]++;
   }
 
-  return this.incJs.includes[filename];
+  return this.php_js.includes[filename];
 }
 
-included("../assets/js/vendor/jquery-1.10.1.min.js");
-included("../assets/js/vendor/bootstrap.js");
-included("../assets/js/vendor/html5shiv.js");
 
  
